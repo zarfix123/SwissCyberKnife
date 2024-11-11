@@ -1,8 +1,5 @@
 # Cyber Swiss Army Tool Usage Guide
 
-![GitHub last commit](https://img.shields.io/github/last-commit/zarfix123/SwissCyberKnife)
-![GitHub](https://img.shields.io/github/license/zarfix123/SwissCyberKnife)
-
 ## Port Scanner Commands and Options
 
 ### Command Structure
