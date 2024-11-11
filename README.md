@@ -42,6 +42,24 @@ Using a virtual environment is recommended, especially if you have other Python 
     ```bash
     pip install -e .
     ```
+4. **Set Up ```rockyou.txt``` wordlist:**
+   - **Option A: Automated Download (recommended):**
+    ```bash
+    curl -L https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt -o src/extra/rockyou.txt
+    ```
+    This command downloads ```rockyou.txt``` directly to the required directory
+
+   - **Option B: Using Git-LFS**: You can also fetch ```rockyou.txt``` with git-lfs:
+    ```bash
+    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+    sudo apt-get install git-lfs
+    git lfs fetch src/extra/rockyou.txt
+    ```
+   - **Option C: Manual Download**: Download ```rockyou.txt``` from [here](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) and place it into:
+    ```plaintext
+    src/extra/rockyou.txt
+    ```
+
 
 ### Option 2: Installing Directly Without a Virtual Environment
 
@@ -57,3 +75,8 @@ If you prefer not to use a virtual environment, you can install the project and 
     ```bash
     pip install -e .
     ```
+3. **Download and place** ```rockyou.txt```:
+
+     Follow the steps under Option 1, step 4 to set up ```rockyou.txt``` in the required directory.
+
+
