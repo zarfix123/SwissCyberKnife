@@ -4,6 +4,8 @@ __pycache__/
 
 # Virtual environment
 venv/
+.venv/
+
 
 # Egg-info directory
 *.egg-info/
