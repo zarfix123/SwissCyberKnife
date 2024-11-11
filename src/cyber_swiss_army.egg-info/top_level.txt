@@ -1,6 +1,0 @@
-encdec
-iplookup
-pass_gen
-pass_strength
-port_scanner
-swissknife

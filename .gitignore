@@ -1,0 +1,16 @@
+# Byte-compiled / cached files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+
+# Egg-info directory
+*.egg-info/
+
+# Build directories
+build/
+dist/
+
+# System-specific files
+.DS_Store
