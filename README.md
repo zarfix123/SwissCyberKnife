@@ -1,4 +1,4 @@
-# Cyber Swiss Army Tool
+# CyberSecurity Swiss Army Tool
 
 <div align="center">
 
@@ -12,7 +12,7 @@
 
 ## Description
 
-***Cyber Swiss Army is a multi-functional cybersecurity toolkit that combines a variety of tools commonly used in cybersecurity and penetration testing. This toolkit includes tools for port scanning, IP lookup, password generation, encryption/decryption, and password strength analysis.***
+***SwissCyberKnife is a multi-functional cybersecurity toolkit that combines a variety of tools commonly used in cybersecurity and penetration testing. This toolkit includes tools for port scanning, IP lookup, password generation, encryption/decryption, and password strength analysis.***
 
 ## Installation
 
