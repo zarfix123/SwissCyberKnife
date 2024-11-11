@@ -4,26 +4,26 @@
 
 ### Command Structure
 
-'''bash
-swissknife port-scanner --target <target> [OPTIONS] 
-'''
+```bash
+swissknife port-scanner --target/-t <target> [OPTIONS]
+```
 
-Options
+### Options
 
-   - --target / -t: Required. Target IP address or domain.
-   - --start-port / -sp: Starting port number for the scan range. Default is 1.
-   - --end-port / -ep: Ending port number for the scan range. Default is 1024.
-   - --all / -a: Scan all ports from 1 to 65535. Overrides --start-port and --end-port.
-   - --common / -c: Scan only the most common ports. 
-   - --tcp: Perform a TCP scan (default if neither --tcp nor --udp specified). 
-   - --udp: Perform a UDP scan. 
-   - --banner / -b: Enable banner grabbing for open ports to retrieve service information.  
-   - --output / -o: Specify output file to save results (if used, requires --format).
-   - --format / -f: Format for output file. Choices are txt, json, csv.
-   - --threads / -th: Number of threads to use for parallel scanning. Default is 1. 
-   - --timeout / -to: Timeout (in seconds) for each connection attempt. Default is 0.5.
-   - --retries / -r: Number of retries for each port if scan fails initially. Default is 1.
-   - --verbose / -v: Show detailed scan progress in the console.
+   - ```--target``` / ```-t```: Required. Target IP address or domain.
+   - ```--start-port``` / ```-sp```: Starting port number for the scan range. Default is 1.
+   - ```--end-port``` / ```-ep```: Ending port number for the scan range. Default is 1024.
+   - ```--all``` / ```-a```: Scan all ports from 1 to 65535. Overrides --start-port and --end-port.
+   - ```--common```/ ```-c```: Scan only the most common ports. 
+   - ```--tcp```: Perform a TCP scan (default if neither --tcp nor --udp specified). 
+   - ```--udp```: Perform a UDP scan. 
+   - ```--banner``` / ```-b```: Enable banner grabbing for open ports to retrieve service information.  
+   - ```--output``` / ```-o```: Specify output file to save results (if used, requires --format).
+   - ```--format``` / ```-f```: Format for output file. Choices are txt, json, csv.
+   - ```--threads``` / ```-th```: Number of threads to use for parallel scanning. Default is 1. 
+   - ```--timeout``` / ```-to```: Timeout (in seconds) for each connection attempt. Default is 0.5.
+   - ```--retries``` / ```-r```: Number of retries for each port if scan fails initially. Default is 1.
+   - ```--verbose``` / ```-v```: Show detailed scan progress in the console.
 
 ### Example Usage
 
@@ -50,3 +50,50 @@ Options
 
 ### Notes
 - Use ```sudo``` if permissions are needed for specific ports.
+
+
+## Password Strength Commands and Options:
+
+### Command Structure
+```bash
+swissknife pass-strength [OPTIONS] <password>
+```
+
+### Options
+   - ```<password>```: **Required**. The password or hash to analyze.
+   - ```--hash-check``` / ```-hc```: Check if the input is a known hash type (e.g, MD5, SHA-1) and if it hash known collision vulns
+   - ```--entropy```/```-en```: Calculate and display the entropy of the password in bits
+   - ```--rockyou-check```/```-ry```: Check if the password contains common dictionary words in rock you (src/extra/rockyou.txt)
+   - ```--wordlist```/```-wl```: Check if the password contains words from the provided path to wordlist
+
+### Example Usage
+- **Basic Password Strength Check**
+ ```bash
+ swissknife pass-strength "StrongPassword!123"
+ ```
+- **Hash Check**
+ ```bash
+ swissknife pass-strength -hc "d41d8cd98f00b204e9800998ecf8427e"
+ ```
+- **Password Check with Entropy Calculation**
+ ```bash
+ swissknife pass-strength -en "StrongPassword!123"
+ ```
+- **Dictionary Check with Rockyou**
+ ```bash
+ swissknife pass-strength -ry "StrongPassword!123"
+ ```
+- **Dictionary Check with Custom wordlist**
+ ```bash
+ swissknife pass-strength -wl /path/to/wordlist.txt "StrongPassword!123"
+ ```
+
+### Notes:
+- Enclosing the password in single quotes is recommended as with some terminals double quotes can cause errors due to  shell history expansion.
+- Use ```sudo``` if your custom wordlist is in a root directory. 
+- If you want to change the preset version of rockyou, it is in src/extra/rockyou.txt
+- Entropy formula: length * log2(pool_size)
+ 
+
+
+

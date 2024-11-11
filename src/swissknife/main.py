@@ -30,6 +30,13 @@ def add_port_scanner_arguments(parser):
     parser.add_argument("--retries", "-r", type=int, default=1, help="Number of retries per port if scan fails")
     parser.add_argument("--verbose", "-v", action="store_true", help="Show detailed scan progress")
 
+def add_pass_strength_arguments(parser):
+    parser.add_argument("password", type=str, help="Password or hash to analyze")
+    parser.add_argument("--hash-check", "-hc", action="store_true", help="Check if input is a known hash and has collisions")
+    parser.add_argument("--entropy", "-en", action="store_true", help="Calculate provided passwords entropy (only works for passwords not hash)")
+    parser.add_argument("--rockyou-check", "-ry", action="store_true", help="Check if password contains common dictionary words (rockyou)")
+    parser.add_argument("--wordlist", "-wl", type=str, help="Check if password contains words from provided wordlist (give path)")
+
 def main():
     parser = argparse.ArgumentParser(
         prog="swissknife",
@@ -44,8 +51,11 @@ def main():
     # Define subparsers for each tool
     port_scanner_parser = subparsers.add_parser("port-scanner", help="Run the port scanner tool")
     add_port_scanner_arguments(port_scanner_parser)
+    
+    pass_strength_parser = subparsers.add_parser("pass-strength", help="Run the password strength analyzer tool")
+    add_pass_strength_arguments(pass_strength_parser)
+    
     subparsers.add_parser("pass-gen", help="Run the password generation tool")
-    subparsers.add_parser("pass-strength", help="Run the password strength analyzer tool")
     subparsers.add_parser("iplookup", help="Run the IP lookup tool")
     subparsers.add_parser("encdec", help="Run the encryption/decryption tool")
     args = parser.parse_args()
