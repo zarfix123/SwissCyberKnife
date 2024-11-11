@@ -9,8 +9,7 @@
 
 ## Description
 
-Cyber Swiss Army is a multi-functional cybersecurity toolkit
-
+***Cyber Swiss Army is a multi-functional cybersecurity toolkit that combines a variety of tools commonly used in cybersecurity and penetration testing. This toolkit includes tools for port scanning, IP lookup, password generation, encryption/decryption, and password strength analysis.***
 
 ## Installation
 
@@ -20,8 +19,8 @@ Using a virtual environment is recommended, especially if you have other Python 
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/cyber-swiss-army.git
-    cd cyber-swiss-army
+    git clone https://github.com/zarfix123/SwissCyberKnife.git
+    cd SwissCyberKnife
     ```
 
 2. **Set up a virtual environment**:
@@ -47,14 +46,11 @@ If you prefer not to use a virtual environment, you can install the project and 
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/cyber-swiss-army.git
-    cd cyber-swiss-army
+    git clone https://github.com/zarfix123/SwissCyberKnife.git
+    cd SwissCyberKnife
     ```
 
 2. **Install dependencies and the project directly**:
     ```bash
     pip install -e .
     ```
-
----
-
