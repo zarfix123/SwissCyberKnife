@@ -1,8 +1,7 @@
 # Cyber Swiss Army Tool
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/zarfix123/SwissCyberKnife)
-![GitHub](https://img.shields.io/github/license/zarfix123/SwissCyberKnife)
-![GitHub stars](https://img.shields.io/github/stars/zarfix123/SwissCyberKnife?style=social)
+![GitHub](https://shields.io/github/license/zarfix123/SwissCyberKnife)
 
 ## Description
 
