@@ -1,0 +1,4 @@
+requests
+cryptography
+scapy
+pytest

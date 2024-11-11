@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: cyber-swiss-army
+Version: 0.1
+Requires-Dist: requests
+Requires-Dist: cryptography
+Requires-Dist: scapy
