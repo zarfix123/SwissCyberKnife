@@ -16,3 +16,6 @@ dist/
 
 # System-specific files
 .DS_Store
+
+# Rock-you (filesize)
+rockyou.txt
