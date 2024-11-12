@@ -95,5 +95,85 @@ swissknife pass-strength [OPTIONS] <password>
 - Entropy formula: length * log2(pool_size)
  
 
+## Password Generator Commands and Options:
+
+### Command Structure
+```bash
+swissknife pass-gen [OPTIONS]
+```
+### Options
+   - ```--length```/```-l```: Specify password length to generate (default is 15)
+   - ```--no-upper```/```-nu```: Uppercase letters will not be included in password generation 
+   - ```-no-lower```/```-nl```: Lowercase letters will not be included in password generation
+   - ```--no-num```/```-nn```: Numbers will not be included in password generation
+   - ```--no-special```/```-ns```: Special characters will not be included in password generation
+   - ```--exclude```/```-ex```: Takes a string of characters to exclude from password generation
+   - ```--alphanumeric```/```-an```: Generates using only alphanumeric characters
+   - ```--hex```: Generates a hex password with the amount of characters provided in length
+   - ```--base64```/```-b64```: Generates a base64 password with the amount of chars provided in length
+   - ```--hash```: Prompts the user for a string and hash algorithm. Hashes string via algorithm. 
+   - ```--memorable```/```-mem```: Generates memorable password using entries in ```rockyou.txt```
+   - ```--count```: Takes an integer for the amount of passwords/hashes you want to generate.
+   - ```--seperator```/```-sep```: Used in coherence with ```--hash```. Takes a string to use as a seperator between entries. 
+
+### Example Usage
+**Basic Password Generation**
+- **Generate a 12-character password with uppercase, lowercase, numbers, and special characters**
+ ```bash
+ swissknife pass-gen --length 12
+ ```
+- **Generate a 20-character alphanumeric password**
+ ```bash
+ swissknife pass-gen --length 20 --alphanumeric
+ ```
+- **Generate a 16-character password with no special characters**
+ ```bash
+ swissknife pass-gen --length 16 --no-special
+ ```
+**Generate Multiple Passwords**
+- **Generate 5 random passwords of 15 characters each**
+ ```bash
+ swissknife pass-gen --length 15 --count 5
+ ```
+**Hexadecimal and Base64 Passwords**
+- **Generate a 32-character hexadecimal password**
+ ```bash
+ swissknife pass-gen --hex --length 32
+ ```
+- **Generate a 24-character base64 password**
+ ```bash
+ swissknife pass-gen -b64 --length 24
+ ```
+**Excluding Specific Characters**
+- **Generate a 10-character password excluding ```A```, ```B```, and ```C```**
+ ```bash
+ swissknife pass-gen --length 10 --exclude "ABC"
+ ```
+**Memorable Password Generation**
+- **Generate a memorable password of 20 characters using words from ```rockyou.txt```**
+ ```bash
+ swissknife pass-gen --memorable --length 20
+ ```
+- **Generate a memorable password of 24 characters with hyphens as separators**
+ ```bash
+ swissknife pass-gen --memorable --length 24 --separator "-"
+ ```
+**Hashing a String**
+- **Hash a custom string with an algorithm prompt**
+ ```bash
+ swissknife pass-gen --hash
+ ```
+   - Program Output:
+      ```plaintext
+      Enter the string you want to hash: mysecretpassword
+      Available algorithms: md5, sha1, sha256, sha512, ...
+      Enter the hashing algorithm to use (e.g., md5, sha1): sha256
+      SHA256('mysecretpassword') = <hashed_value>
+      ```
+
+
+
+
+
 
 

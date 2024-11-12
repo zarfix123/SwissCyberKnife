@@ -37,6 +37,21 @@ def add_pass_strength_arguments(parser):
     parser.add_argument("--rockyou-check", "-ry", action="store_true", help="Check if password contains common dictionary words (rockyou)")
     parser.add_argument("--wordlist", "-wl", type=str, help="Check if password contains words from provided wordlist (give path)")
 
+def add_pass_gen_arguments(parser):
+    parser.add_argument("--length", "-l", type=int, default=15, help="Set custom length for password (defualt is 15)")
+    parser.add_argument("--no-upper", "-nu", action="store_true", help="Exclude uppercase letters")
+    parser.add_argument("--no-lower", "-nl", action="store_true", help="Exclude lowercase letters")
+    parser.add_argument("--no-num", "-nn", action="store_true", help="Exclude numbers")
+    parser.add_argument("--no-special", "-ns", action="store_true", help="Exclude special characters")
+    parser.add_argument("--exclude", "-ex", type=str, help="Accepts a string of characters to exclude")
+    parser.add_argument("--alphanumeric", "-an", action="store_true", help="Give password using only alphanumeric characters")
+    parser.add_argument("--hex", action="store_true", help="Gives password in hex")
+    parser.add_argument("--base64", "-b64", action="store_true", help="Gives password in base64")
+    parser.add_argument("--hash", action="store_true", help="This flag should be called alone. Will prompt for string and algorithm.")
+    parser.add_argument("--memorable", "-mem", action="store_true", help="Leverages rockyou wordlist for a memorable password")
+    parser.add_argument("--count", type=int, help="Takes an integer of how many passwords to generate")
+    parser.add_argument("--seperator", "-sep", type=str, help="Takes a string of characters to use as seperator when using --memorable")
+    
 def main():
     parser = argparse.ArgumentParser(
         prog="swissknife",
@@ -55,7 +70,9 @@ def main():
     pass_strength_parser = subparsers.add_parser("pass-strength", help="Run the password strength analyzer tool")
     add_pass_strength_arguments(pass_strength_parser)
     
-    subparsers.add_parser("pass-gen", help="Run the password generation tool")
+    pass_gen_parser = subparsers.add_parser("pass-gen", help="Run the password generation tool")
+    add_pass_gen_arguments(pass_gen_parser)
+    
     subparsers.add_parser("iplookup", help="Run the IP lookup tool")
     subparsers.add_parser("encdec", help="Run the encryption/decryption tool")
     args = parser.parse_args()
