@@ -2,3 +2,4 @@ requests
 cryptography
 scapy
 pytest
+maxminddb

@@ -51,6 +51,17 @@ def add_pass_gen_arguments(parser):
     parser.add_argument("--memorable", "-mem", action="store_true", help="Leverages rockyou wordlist for a memorable password")
     parser.add_argument("--count", type=int, help="Takes an integer of how many passwords to generate")
     parser.add_argument("--seperator", "-sep", type=str, help="Takes a string of characters to use as seperator when using --memorable")
+
+def add_iplookup_arguments(parser):
+    parser.add_argument("--target", "-t", required=True, help="Target Ip to Lookup")   
+    parser.add_argument("--ipv6", "-v6", action="store_true", help="Change to IPV6 mode")
+    parser.add_argument("--dns", "-d", action="store_true", help="Perform a DNS lookup on the provided IP target")
+    parser.add_argument("--reverse", "-rv", action="store_true", help="Perform a reverse DNS lookup")
+    parser.add_argument("--geo", "-g", action="store_true", help="Fetch geolocation information for the target")
+    parser.add_argument("--asn", action="store_true", help="Retrieve ASN")
+    parser.add_argument("--output", "-o", type=str, help="Set output location (path)")
+    parser.add_argument("--json", action="store_true", help="output in json format")
+    parser.add_argument("--csv", action="store_true", help="output in csv format")
     
 def main():
     parser = argparse.ArgumentParser(
@@ -73,7 +84,10 @@ def main():
     pass_gen_parser = subparsers.add_parser("pass-gen", help="Run the password generation tool")
     add_pass_gen_arguments(pass_gen_parser)
     
-    subparsers.add_parser("iplookup", help="Run the IP lookup tool")
+    iplookup_parser = subparsers.add_parser("iplookup", help="Run the IP lookup tool")
+    add_iplookup_arguments(iplookup_parser)
+    
+    
     subparsers.add_parser("encdec", help="Run the encryption/decryption tool")
     args = parser.parse_args()
 
