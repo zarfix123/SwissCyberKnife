@@ -26,7 +26,7 @@ def main(args):
 def dns_lookup(targetip, ipv6=False):
     try:
         if ipv6:
-            adr_info = socket.getaddrinfo(target, None, socket.AF_INET6)
+            adr_info = socket.getaddrinfo(targetip, None, socket.AF_INET6)
             ip_addrs = [adr_info[4][0] for info in adr_info]
             result = {
                 "Hostname": targetip,
@@ -45,7 +45,7 @@ def dns_lookup(targetip, ipv6=False):
             }
         return result
     except socket.gaierror as e:
-        return(f"DNS lookup failed for {target}: {e}")
+        return(f"DNS lookup failed for {targetip}: {e}")
     
 def reverse_dns(targetip, ipv6=False):
     try:
